@@ -1,6 +1,6 @@
 require './config/environment'
 class ApplicationController < Sinatra::Base
-  set :views, Proc.new { File.join(root, "../views/application") }
+  set :views, Proc.new { File.join(root, "../views") }
 
   get '/' do
     erb :index
