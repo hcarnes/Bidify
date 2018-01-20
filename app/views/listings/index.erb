@@ -5,6 +5,6 @@ Click <a href="/listings/new">here</a> to creat a new listing.</br>
 <br>
 <ul>
 <% @listings.each do |listing| %>
-  <li><a href="/tweets/<%= listing.id %>"><%= listing.title %></a></li>
+  <li><a href="/listings/<%= listing.id %>"><%= listing.title %></a></li>
 <% end %>
 </ul>
