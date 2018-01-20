@@ -1,2 +1,6 @@
-class ListingsController < ActiveRecord::Base
+class ListingsController < ApplicationController
+
+  get '/listings' do
+    "Listings!"
+  end
 end
