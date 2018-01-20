@@ -1,0 +1,10 @@
+<h2>Welcome, <%= current_user.username %>!</h2></br>
+<h4 style="color:blue;">Check out your listings.</h4>
+
+Click <a href="/listings/new">here</a> to creat a new listing.</br>
+<br>
+<ul>
+<% @listings.each do |listing| %>
+  <li><a href="/tweets/<%= listing.id %>"><%= listing.title %></a></li>
+<% end %>
+</ul>

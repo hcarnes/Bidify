@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
 
   get '/listings' do
-    "Listings!"
+    @listings = Listing.all
+    erb :'listings/index'
   end
 end
