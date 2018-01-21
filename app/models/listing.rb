@@ -4,6 +4,10 @@ class Listing < ActiveRecord::Base
 
   validates_presence_of :starting_bid
 
+  def self.current
+    self.where("listings.created_at > datetime('now', '-7 days')")
+  end
+
   def latest_bid
     self.bids.last
   end

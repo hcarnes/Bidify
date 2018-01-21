@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
 
   get '/listings' do
-    @listings = Listing.all
+    @listings = Listing.current
     erb :'listings/index'
   end
 
