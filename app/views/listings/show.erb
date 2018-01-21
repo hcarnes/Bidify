@@ -1,4 +1,11 @@
 <h3><%= @listing.title %></h3>
+<p>
+  <% if @listing.latest_bid %>
+  Current Bid: <%= @listing.latest_bid.amount %>
+  <% else %>
+  Starting Bid: <%= @listing.starting_bid %>
+  <% end %>
+</p>
 <p><img class="listing_image" src="<%= @listing.image_url %>" alt="listing image"></p>
 <br>
 <br>
