@@ -11,7 +11,8 @@
     <% end %>
   <% else %>
     <p>
-      Ending at: <%= format_time(@listing.end_time) %>
+      Ending at: <%= format_time(@listing.end_time) %><br>
+      Time left: <span id="countdown_timer"><%= @listing.end_time %></span>
     </p>
     <% if @listing.latest_bid %>
     <p>

@@ -1,3 +1,8 @@
 .listing_image {
   width: 250px;
 }
+
+#countdown_timer {
+  color: red;
+  font-weight: bold;
+}
