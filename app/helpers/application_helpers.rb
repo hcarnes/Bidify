@@ -12,4 +12,9 @@ module ApplicationHelpers
     money = Money.from_amount(amount, "USD")
     money.format
   end
+
+  def format_time(timestamp)
+    # TODO: Support different user timezones
+    timestamp.in_time_zone("America/New_York").strftime('%B %-d, %l:%M:%S %p')
+  end
 end
