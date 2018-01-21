@@ -37,4 +37,16 @@ class ListingsController < ApplicationController
       redirect "/listings/#{listing.id}/edit"
     end
   end
+
+  post '/listings/:id/add_bid' do
+    listing = Listing.find(params[:id])
+    listing.bids.build(amount: params[:bid_amount])
+
+    if listing.save
+      redirect "/listings/#{listing.id}"
+    else
+      # TODO: add flash error message
+      redirect "/listings/#{listing.id}"
+    end
+  end
 end
