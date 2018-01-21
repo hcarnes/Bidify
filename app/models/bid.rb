@@ -5,7 +5,7 @@ class Bid < ActiveRecord::Base
   validates_presence_of :user_id
   validates_presence_of :listing_id
   validate :no_self_bidding
-  validate :amount_higher_than_starting_bid
+  validate :amount_higher_than_current_price
   validate :auction_isnt_over
 
   def no_self_bidding
@@ -14,9 +14,9 @@ class Bid < ActiveRecord::Base
     end    
   end
 
-  def amount_higher_than_starting_bid
-    if self.listing.starting_bid > self.amount
-      errors.add(:amount, "bid must be higher than starting amount")
+  def amount_higher_than_current_price
+    if self.listing.current_price > self.amount
+      errors.add(:amount, "bid must be higher than current price")
     end
   end
 
