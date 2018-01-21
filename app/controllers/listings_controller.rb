@@ -29,4 +29,12 @@ class ListingsController < ApplicationController
     erb :'listings/edit'
   end
 
+  patch '/listings/:id' do
+    listing = current_user.listings.find(params[:id])
+    if listing.update(params[:listing])
+      redirect '/listings'
+    else
+      redirect "/listings/#{listing.id}/edit"
+    end
+  end
 end
