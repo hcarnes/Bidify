@@ -1,23 +1,24 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>E-Auction</title>
+    <title>Bidify</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/app.css">
   </head>
   <body>
 
     <div class="container">
-      <h1>E-Auction</h1>
+      <h1>Bidify</h1>
 
       <%= yield %> 
-        
+
       <br>
       <footer>
         <a href="/listings">Home</a>
         <% if current_user %>
         <a href="/logout">Logout</a>
         <% else %>
+        <a href="/signup">Sign Up</a>
         <a href="/login">Login</a>
         <% end %>
       </footer>
