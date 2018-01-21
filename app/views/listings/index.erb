@@ -1,4 +1,6 @@
-<a href="/listings/new" class="btn btn-default">Create Listing</a>
+<% if current_user %>
+  <a href="/listings/new" class="btn btn-default">Create Listing</a>
+<% end %>
 <br>
 <br>
 <div class="panel panel-default">
