@@ -15,6 +15,7 @@ class ListingsController < ApplicationController
     if listing.save
       redirect "/listings/#{listing.id}"
     else
+      flash[:error] = listing.errors.full_messages.join(", ")
       redirect '/listings/new'
     end
   end
@@ -32,6 +33,7 @@ class ListingsController < ApplicationController
   delete '/listings/:id' do
     listing = current_user.listings.find(params[:id])
     listing.destroy
+    flash[:notice] = "Listing '#{listing.title}' has been deleted"
     redirect '/listings'
   end
 
@@ -40,18 +42,19 @@ class ListingsController < ApplicationController
     if listing.update(params[:listing])
       redirect "/listings/#{listing.id}"
     else
+      flash[:error] = listing.errors.full_messages.join(", ")
       redirect "/listings/#{listing.id}/edit"
     end
   end
 
   post '/listings/:id/add_bid' do
     listing = Listing.find(params[:id])
-    listing.bids.build(user: current_user, amount: params[:bid_amount])
+    bid = listing.bids.build(user: current_user, amount: params[:bid_amount])
    
     if listing.save
       redirect "/listings/#{listing.id}"
     else
-      # TODO: add flash error message
+      flash[:error] = bid.errors.full_messages.join(", ")
       redirect "/listings/#{listing.id}"
     end
   end

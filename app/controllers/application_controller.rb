@@ -1,6 +1,7 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
+  use Rack::Flash
   helpers ApplicationHelpers
 
   configure do

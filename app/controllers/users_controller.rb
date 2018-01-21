@@ -26,6 +26,7 @@ class UsersController < ApplicationController
       sign_in(user)
       redirect "/listings"
     else
+      flash[:message] = "Invalid username or password"
       redirect '/login'
     end
   end

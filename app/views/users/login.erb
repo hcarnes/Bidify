@@ -1,4 +1,7 @@
 <h3>Login to Bidify</h3>
+<% if flash.has?(:message) %>
+  <div class="alert alert-danger" role="alert"><%= flash[:message] %></div>
+<% end %>
 <form action="/login" method="POST"></br>
   <input type="text" name="username" placeholder="Username"></br></br>
   <input type="password" name="password" placeholder="Password"></br></br>

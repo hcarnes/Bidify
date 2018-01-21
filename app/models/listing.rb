@@ -3,6 +3,7 @@ class Listing < ActiveRecord::Base
   has_many :bids
 
   validates_presence_of :starting_bid
+  validates_presence_of :title
 
   def self.current
     self.where("listings.created_at > datetime('now', '-7 days')")

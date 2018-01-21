@@ -36,6 +36,9 @@
 </p>
 <% if current_user && current_user != @listing.user %>
 <form action="/listings/<%= @listing.id %>/add_bid" method="post">
+  <% if flash.has?(:error) %>
+    <div class="alert alert-danger" role="alert"><%= flash[:error] %></div>
+  <% end %>
   <label>
     Bid amount: <input type="text" name="bid_amount">
     <input type="submit" value="Place Bid" class="btn btn-default">

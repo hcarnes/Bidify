@@ -15,8 +15,8 @@ class Bid < ActiveRecord::Base
   end
 
   def amount_higher_than_current_price
-    if self.listing.current_price > self.amount
-      errors.add(:amount, "bid must be higher than current price")
+    if !self.amount || self.listing.current_price > self.amount
+      errors.add(:amount, "must be higher than current price")
     end
   end
 

@@ -14,6 +14,7 @@ gem 'bcrypt'
 gem "tux"
 gem 'money'
 gem 'redcarpet'
+gem 'rack-flash3'
 
 group :test do
   gem 'rspec'

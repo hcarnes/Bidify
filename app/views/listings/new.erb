@@ -1,7 +1,10 @@
 <h3>New Listing</h3>
 <div>
   <form action="/listings" method="post"><br>
-    Title: <input type="text" name="listing[title]" id="title"><br><br>
+    <% if flash.has?(:error) %>
+      <div class="alert alert-danger" role="alert"><%= flash[:error] %></div>
+    <% end %>
+    Title: <input type="text" name="listing[title]" id="title" required><br><br>
     Description: <br><textarea name="listing[description]" id="description"></textarea><br><br>
     Starting Bid: $<input type="text" name="listing[starting_bid]" id="starting_bid" required pattern="\d+.?\d*"><br><br>
     Image URL: <input type="text" name="listing[image_url]" id="content"><br><br>
