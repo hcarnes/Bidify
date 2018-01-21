@@ -1,10 +1,10 @@
 <h3><%= @listing.title %></h3>
 <p>
   <% if @listing.latest_bid %>
-  Current Bid: <%= @listing.latest_bid.amount %>
+  Current Bid: <%= format_amount(@listing.latest_bid.amount) %>
   High Bidder: <%= @listing.latest_bid.user.username %>
   <% else %>
-  Starting Bid: <%= @listing.starting_bid %>
+  Starting Bid: <%= format_amount(@listing.starting_bid) %>
   <% end %>
 </p>
 <% if @listing.image_url.present? %>

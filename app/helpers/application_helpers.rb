@@ -7,4 +7,9 @@ module ApplicationHelpers
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
   end
+
+  def format_amount(amount)
+    money = Money.from_amount(amount, "USD")
+    money.format
+  end
 end

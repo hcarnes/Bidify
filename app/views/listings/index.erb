@@ -17,7 +17,7 @@ Click <a href="/listings/new">here</a> to create a new listing.</br>
       <% @listings.each do |listing| %>
         <tr>
           <td><a href="/listings/<%= listing.id %>"><%= listing.title %></a></td>
-          <td><%= listing.current_price %></td>
+          <td><%= format_amount(listing.current_price) %></td>
         </tr>
       <% end %>
     </table>
