@@ -15,4 +15,8 @@ class Listing < ActiveRecord::Base
   def end_time
     self.created_at + 7.days
   end
+
+  def over?
+    self.end_time <= Time.now
+  end
 end

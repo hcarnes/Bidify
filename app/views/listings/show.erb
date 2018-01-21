@@ -1,19 +1,30 @@
 <h3><%= @listing.title %></h3>
 <p>
-  <p>
-    Ending at: <%= format_time(@listing.end_time) %>
-  </p>
-  <% if @listing.latest_bid %>
-  <p>
-    Current Bid: <%= format_amount(@listing.latest_bid.amount) %>
-  </p>
-  <p>
-    High Bidder: <%= @listing.latest_bid.user.username %>
-  </p>
+  <% if @listing.over? %>
+    <p>
+      Ended at: <%= format_time(@listing.end_time) %>
+    </p>
+    <% if @listing.latest_bid %>
+      <p>
+        Won by <%= @listing.latest_bid.user.username %> for <%= format_amount(@listing.current_price) %>
+      </p>
+    <% end %>
   <% else %>
-  <p>
-    Starting Bid: <%= format_amount(@listing.starting_bid) %>
-  </p>
+    <p>
+      Ending at: <%= format_time(@listing.end_time) %>
+    </p>
+    <% if @listing.latest_bid %>
+    <p>
+      Current Bid: <%= format_amount(@listing.latest_bid.amount) %>
+    </p>
+    <p>
+      High Bidder: <%= @listing.latest_bid.user.username %>
+    </p>
+    <% else %>
+    <p>
+      Starting Bid: <%= format_amount(@listing.starting_bid) %>
+    </p>
+    <% end %>
   <% end %>
 </p>
 <% if @listing.image_url.present? %>
