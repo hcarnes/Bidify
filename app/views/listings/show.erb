@@ -1,0 +1,10 @@
+<h3><%= @listing.title %></h3>
+<a href="/listings/<%= @listing.id %>/edit">Edit Listing</a>
+</br>
+</br>
+<div>
+  <form action="/listings/<%= @listing.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Tweet">
+  </form>
+</div>

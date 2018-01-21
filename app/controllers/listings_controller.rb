@@ -19,4 +19,14 @@ class ListingsController < ApplicationController
     end
   end
 
+  get '/listings/:id' do
+    @listing = Listing.find(params[:id])
+    erb :'listings/show'
+  end
+
+  get '/listings/:id/edit' do
+    @listing = Listing.find(params[:id])
+    erb :'listings/edit'
+  end
+
 end
