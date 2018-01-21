@@ -30,8 +30,6 @@
 <% if @listing.image_url.present? %>
   <p><img class="listing_image" src="<%= @listing.image_url %>" alt="listing image"></p>
 <% end %>
-<br>
-<br>
 <p>
   <%= render_markdown(@listing.description) %>
 </p>
