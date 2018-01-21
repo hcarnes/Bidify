@@ -1,5 +1,5 @@
 <h3><%= @listing.title %></h3>
-<p>
+<div class="well">
   <% if @listing.over? %>
     <p>
       Ended at: <%= format_time(@listing.end_time) %>
@@ -26,7 +26,7 @@
     </p>
     <% end %>
   <% end %>
-</p>
+</div>
 <% if @listing.image_url.present? %>
   <p><img class="listing_image" src="<%= @listing.image_url %>" alt="listing image"></p>
 <% end %>
@@ -36,19 +36,23 @@
 <form action="/listings/<%= @listing.id %>/add_bid" method="post">
   <label>
     Bid amount: <input type="text" name="bid_amount">
-    <input type="submit" value="Place Bid">
+    <input type="submit" value="Place Bid" class="btn btn-default">
   </label>
 </form>
 
 <% end %>
 <% if current_user && current_user.listings.include?(@listing) %>
   <div>
-    <a href="/listings/<%= @listing.id %>/edit">Edit Listing</a>
     <form action="/listings/<%= @listing.id %>" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Remove Listing">
+      <input type="hidden" name="_method" value="delete">
+      <div class="btn-group">
+        <a href="/listings/<%= @listing.id %>/edit" class="btn btn-default">Edit Listing</a>
+        <input type="submit" value="Remove Listing" class="btn btn-danger">
+      </div>
     </form>
   </div>
 <% end %>
 </br>
 </br>
+
+
