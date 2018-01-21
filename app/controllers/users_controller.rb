@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       sign_in(user)
       redirect "/listings"
     else
+      flash[:error] = user.errors.full_messages.join(", ")
       redirect "/signup"
     end
   end
