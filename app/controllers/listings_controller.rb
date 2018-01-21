@@ -13,7 +13,7 @@ class ListingsController < ApplicationController
     listing  = current_user.listings.build(params[:listing])
 
     if listing.save
-      redirect '/listings'
+      redirect "/listings/#{listing.id}"
     else
       redirect '/listings/new'
     end
@@ -32,7 +32,7 @@ class ListingsController < ApplicationController
   patch '/listings/:id' do
     listing = current_user.listings.find(params[:id])
     if listing.update(params[:listing])
-      redirect '/listings'
+      redirect "/listings/#{listing.id}"
     else
       redirect "/listings/#{listing.id}/edit"
     end
