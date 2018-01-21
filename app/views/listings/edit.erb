@@ -2,7 +2,7 @@
 <div>
 <form action="/listings/<%= @listing.id %>" method="post">
     Title: <input type="text" name="listing[title]" id="title" value="<%= @listing.title %>"><br><br>
-    Description: <input type="text" name="listing[description]" id="description" value="<%= @listing.description %>"><br><br>
+    Description: <br><textarea name="listing[description]" id="description"><%= @listing.description %></textarea><br><br>
     Starting Bid: <input type="text" name="listing[starting_bid]" id="starting_bid" value="<%= @listing.starting_bid %>"><br><br>
     Image URL: <input type="text" name="listing[image_url]" id="image_url" value="<%= @listing.image_url %>"><br><br>
     <input type="hidden" name="_method" value="patch">
