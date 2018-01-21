@@ -7,4 +7,8 @@ class Listing < ActiveRecord::Base
   def latest_bid
     self.bids.last
   end
+
+  def current_price
+    self.latest_bid && self.latest_bid.amount || self.starting_bid
+  end
 end

@@ -2,8 +2,23 @@
 
 Click <a href="/listings/new">here</a> to create a new listing.</br>
 <br>
-<ul>
-<% @listings.each do |listing| %>
-  <li><a href="/listings/<%= listing.id %>"><%= listing.title %></a></li>
-<% end %>
-</ul>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Current Listings</div>
+  
+    <!-- Table -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Current Price</th>
+        </tr>
+      </thead>
+      <% @listings.each do |listing| %>
+        <tr>
+          <td><a href="/listings/<%= listing.id %>"><%= listing.title %></a></td>
+          <td><%= listing.current_price %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
