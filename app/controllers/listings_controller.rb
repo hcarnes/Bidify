@@ -29,6 +29,12 @@ class ListingsController < ApplicationController
     erb :'listings/edit'
   end
 
+  delete '/listings/:id' do
+    listing = current_user.listings.find(params[:id])
+    listing.destroy
+    redirect '/listings'
+  end
+
   patch '/listings/:id' do
     listing = current_user.listings.find(params[:id])
     if listing.update(params[:listing])
