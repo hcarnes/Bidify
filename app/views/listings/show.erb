@@ -1,14 +1,16 @@
 <h3><%= @listing.title %></h3>
 <p><img class="listing_image" src="<%= @listing.image_url %>" alt="listing image"></p>
-<a href="/listings/<%= @listing.id %>/edit">Edit Listing</a>
 </br>
 </br>
-<div>
-  <form action="/listings/<%= @listing.id %>" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Remove Listing">
-  </form>
+<% if current_user.listings.include?(@listing) %>
+  <div>
+    <a href="/listings/<%= @listing.id %>/edit">Edit Listing</a>
+    <form action="/listings/<%= @listing.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Remove Listing">
+    </form>
+  </div>
+<% end %>
 </br>
 </br>
-  <a href="/logout">Logout</a>
-</div>
+<a href="/logout">Logout</a>
