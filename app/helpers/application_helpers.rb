@@ -17,4 +17,9 @@ module ApplicationHelpers
     # TODO: Support different user timezones
     timestamp.in_time_zone("America/New_York").strftime('%B %-d %Y, %l:%M:%S %p')
   end
+
+  def render_markdown(markdown)
+    parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+    parser.render(markdown)
+  end
 end

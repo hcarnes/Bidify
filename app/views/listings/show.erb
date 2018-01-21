@@ -33,7 +33,7 @@
 <br>
 <br>
 <p>
-  <%= @listing.description %>
+  <%= render_markdown(@listing.description) %>
 </p>
 <% if current_user && current_user != @listing.user %>
 <form action="/listings/<%= @listing.id %>/add_bid" method="post">
