@@ -6,22 +6,29 @@
     <link rel="stylesheet" href="/app.css">
   </head>
   <body>
-
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <a href="/listings" class="navbar-brand">Bidify</a>
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li>
+              <a href="/logout" class="btn btn-default">Logout</a>
+            </li>
+          <% else %>
+            <li>
+              <a href="/signup" class="btn btn-default">Sign Up</a>
+            </li>
+            <li>
+              <a href="/login" class="btn btn-default">Login</a>
+            </li>
+          <% end %>
+          </ul>
+      </div>
+    </nav>
     <div class="container">
-      <h1>Bidify</h1>
-
       <%= yield %> 
 
       <br>
-      <footer>
-        <a href="/listings">Home</a>
-        <% if current_user %>
-        <a href="/logout">Logout</a>
-        <% else %>
-        <a href="/signup">Sign Up</a>
-        <a href="/login">Login</a>
-        <% end %>
-      </footer>
     </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
