@@ -40,8 +40,8 @@ class ListingsController < ApplicationController
 
   post '/listings/:id/add_bid' do
     listing = Listing.find(params[:id])
-    current_user.bids.build(listing: listing, amount: params[:bid_amount])
-
+    listing.bids.build(user: current_user, amount: params[:bid_amount])
+   
     if listing.save
       redirect "/listings/#{listing.id}"
     else
