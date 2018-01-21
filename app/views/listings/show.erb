@@ -2,7 +2,7 @@
 <p><img class="listing_image" src="<%= @listing.image_url %>" alt="listing image"></p>
 </br>
 </br>
-<% if current_user.listings.include?(@listing) %>
+<% if current_user && current_user.listings.include?(@listing) %>
   <div>
     <a href="/listings/<%= @listing.id %>/edit">Edit Listing</a>
     <form action="/listings/<%= @listing.id %>" method="post">
