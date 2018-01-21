@@ -1,7 +1,16 @@
 <h3><%= @listing.title %></h3>
 <p><img class="listing_image" src="<%= @listing.image_url %>" alt="listing image"></p>
-</br>
-</br>
+<br>
+<br>
+<% if current_user && current_user != @listing.user %>
+<form action="/listings/<%= @listing.id %>/add_bid" method="post">
+  <label>
+    Bid amount: <input type="text" name="bid_amount">
+    <input type="submit" value="Place Bid">
+  </label>
+</form>
+
+<% end %>
 <% if current_user && current_user.listings.include?(@listing) %>
   <div>
     <a href="/listings/<%= @listing.id %>/edit">Edit Listing</a>
