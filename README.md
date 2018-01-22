@@ -1,4 +1,4 @@
-# Bidify: s/inatra-final-project-hcarnes
+# Bidify: sinatra-final-project-hcarnes
 
 Welcome to Bidify. This app allows users to list auction items, as well as bid on items listed by others.
 
