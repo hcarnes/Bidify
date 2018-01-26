@@ -31,4 +31,9 @@ class UsersController < ApplicationController
       redirect '/login'
     end
   end
+
+  get '/user/:id' do
+    @bids = current_user.bids.all
+    erb :'users/show'
+  end
 end

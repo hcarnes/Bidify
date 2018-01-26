@@ -10,7 +10,7 @@ class Listing < ActiveRecord::Base
   end
 
   def latest_bid
-    # Force ActiveRecord to look at the data in the database so newly built bids are ignored
+    # Force ActiveRecord to run a query and look at the data in the database so newly built bids are ignored
     self.bids.where("1=1").last
   end
 

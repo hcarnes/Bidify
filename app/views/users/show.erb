@@ -1,0 +1,4 @@
+<% @bids.each do |bid| %>
+<%= bid.listing.title %> <br> 
+<%= format_amount(bid.amount) %><br><br>
+<% end %>

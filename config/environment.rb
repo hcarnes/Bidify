@@ -1,3 +1,4 @@
+#default Sinatra environmen is development
 ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'
@@ -8,5 +9,6 @@ ActiveRecord::Base.establish_connection(
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
+#looks for config.ru before it loads the application
 require 'rack/flash'
 require_all 'app'
